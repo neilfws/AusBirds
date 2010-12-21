@@ -1,0 +1,3 @@
+code/rails/ausbirds/log/*
+code/rails/ausbirds/tmp/*
+code/rails/ausbirds/config/mongoid.yml

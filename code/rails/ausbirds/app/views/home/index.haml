@@ -1,0 +1,11 @@
+%h1 Home#index
+
+There are #{@species.count} species in the database.
+
+%table{:border => 1}
+  %tr
+    %td List of species
+    %td List of observations
+  %tr
+    %td #{@seen.count} species seen.
+    %td observations...
