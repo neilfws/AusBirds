@@ -1,0 +1,10 @@
+%h1 List
+
+%table{:border => 1}
+  %th Common Name
+  %th Binomial
+  %tr
+  - @seen.each do |bird|
+    %tr
+      %td= bird["common_name"]
+      %td= bird["binomial"]

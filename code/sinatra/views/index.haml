@@ -1,0 +1,64 @@
+%h1 Australian Bird Life List
+
+:javascript
+  $(function() {
+                var seenTags = #{@seen.map {|s| s['common_name']}.inspect};
+                $("#remove-common-name").autocomplete({
+                        source: seenTags
+                });
+                var unseenTags = #{@unseen.map {|s| s['common_name']}.inspect};
+                $("#add-common-name").autocomplete({
+                        source: unseenTags
+                });
+                var allTags = #{options.species.find.map {|s| s['common_name']}.inspect};
+                $("#search-common-name").autocomplete({
+                        source: allTags
+                });
+        });
+
+  $(function () {
+    new Highcharts.Chart({
+      chart:  {
+               renderTo: 'container',
+               plotBackgroundColor: null,
+               plotBorderWidth: null,
+               plotShadow: false,
+               width: 400,
+               height: 400
+             },
+      legend: { enabled: false },
+      title:  { text: "#{@seen.count}/#{@seen.count + @unseen.count} Species Seen" },
+      tooltip: {
+               formatter: function() {
+               return '<b>'+ this.point.name +'</b>: '+ this.y +' species';
+         }
+      },
+      series: [{
+        type: 'pie',
+        data: [['Seen', #{@seen.count}], ['Unseen', #{@unseen.count}]]
+            }],
+      credits: { enabled: false }
+    });
+  });
+
+%table{:border => 0, :width => "100%"}
+  %tr
+    %td{:id => "container"}
+    %td
+      %h3 Add a species
+      %form{:action => "/add", :method => "post", :name => "add-species"}
+        %label{:for  => "add-common-name"} Type common name:
+        %input{:id   => "add-common-name", :name => "common_name"}
+        %input{:type => "hidden", :value => 1, :name => "seen"}
+        %input{:type => "submit", :value => "Add"}
+      %h3 Remove a species
+      %form{:action => "/remove", :method => "post", :name => "remove-species"}
+        %label{:for  => "remove-common-name"} Type common name:
+        %input{:id   => "remove-common-name", :name => "common_name"}
+        %input{:type => "hidden", :value => 0, :name => "seen"}
+        %input{:type => "submit", :value => "Remove"}
+      %h3 Search species
+      %form{:action => "/search", :method => "post", :name => "search-species"}
+        %label{:for  => "search-common-name"} Type common name:
+        %input{:id   => "search-common-name", :name => "common_name"}
+        %input{:type => "submit", :value => "Search"}

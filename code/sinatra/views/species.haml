@@ -1,0 +1,24 @@
+%h1= @bird['common_name']
+
+%form{:action => "/edit", :method => "post", :name => "edit-species"}
+  %table
+    %tr
+      %td
+        %label{:for  => "common-name"} Common name:
+      %td
+        %input{:id   => "common-name", :name => "common_name", :value => @bird['common_name']}
+    %tr
+      %td
+        %label{:for  => "binomial"} Binomial:
+      %td
+        %input{:id   => "binomial", :name => "binomial", :value => @bird['binomial']}
+    %tr
+      %td
+        %label{:for  => "notes"} Notes:
+      %td
+        %textarea{:id => "notes", :name => "notes"}
+          = @bird['notes']
+    %tr
+      %td{:colspan => 2, :align => "right"}
+        %input{:type => "hidden", :name => "seen", :value => @bird['seen']}
+        %input{:type => "submit", :value => "Save"}

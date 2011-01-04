@@ -1,0 +1,22 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    bson (1.1.5)
+    haml (3.0.25)
+    mongo (1.1.5)
+      bson (>= 1.1.5)
+    rack (1.2.1)
+    sinatra (1.1.2)
+      rack (~> 1.1)
+      tilt (~> 1.2)
+    tilt (1.2.1)
+    will_paginate (3.0.pre2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  haml (= 3.0.25)
+  mongo (= 1.1.5)
+  sinatra (= 1.1.2)
+  will_paginate (= 3.0.pre2)
