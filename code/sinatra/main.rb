@@ -44,10 +44,6 @@ end
 
 get "/list" do
   @seen    = options.species.find(:seen => 1).sort(:common_name, 1)
-  # @results = options.species.find(:seen => 1)
-  # @seen = WillPaginate::Collection.create(1, per_page=10, @results.count) do |p|
-  #  p.replace(@results.to_a)
-  # end
   haml :list
 end
 

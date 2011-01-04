@@ -1,13 +1,21 @@
 %h1 List
 
 :javascript
-  $(function() {
-    itemsPerPage = 10;
-    $("#table").pagination();
+  $(document).ready(function() {
+      $("table")
+        .tablesorter({widthFixed: false, widgets: ['zebra']})
   });
 
-%div#table
-  - @seen.each do |bird|
-    %p
-      %a{:href => "/species/#{bird['binomial'].gsub(/\s+/, '_')}"}= bird["common_name"]
+%table{:id => "table", :class => "tablesorter"}
+  %thead
+    %tr
+      %th Common Name
+      %th Binomial
+  %tbody
+    - @seen.each do |bird|
+      %tr
+        %td
+          %a{:href => "/species/#{bird['binomial'].gsub(/\s+/, '_')}"}= bird["common_name"]
+        %td
+          = bird['binomial']
 
