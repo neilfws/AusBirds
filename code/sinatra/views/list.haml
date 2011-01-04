@@ -1,10 +1,13 @@
 %h1 List
 
-%table{:border => 1}
-  %th Common Name
-  %th Binomial
-  %tr
+:javascript
+  $(function() {
+    itemsPerPage = 10;
+    $("#table").pagination();
+  });
+
+%div#table
   - @seen.each do |bird|
-    %tr
-      %td= bird["common_name"]
-      %td= bird["binomial"]
+    %p
+      %a{:href => "/species/#{bird['binomial'].gsub(/\s+/, '_')}"}= bird["common_name"]
+
