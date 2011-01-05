@@ -1,0 +1,12 @@
+%h1 You're unlikely to see these
+
+%table{:class => "tablesorter"}
+  %tr
+    %th Common Name
+    %th Binomial
+    %th Notes
+  - @extinct.each do |bird|
+    %tr
+      %td= bird['common_name']
+      %td= bird['binomial']
+      %td= bird['notes']

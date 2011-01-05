@@ -52,3 +52,8 @@ get "/species/*" do
   @bird    = options.species.find(:binomial => binomial).first
   haml :species
 end
+
+get "/extinct" do
+  @extinct = options.species.find(:notes => /extinct/)
+  haml :extinct
+end
