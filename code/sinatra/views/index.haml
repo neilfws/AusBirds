@@ -28,6 +28,7 @@
              },
       legend: { enabled: false },
       title:  { text: "#{@seen.count}/#{@seen.count + @unseen.count} Species Seen" },
+      subtitle: { text: "Click List (menu top-right) for full list"},
       tooltip: {
                formatter: function() {
                return '<b>'+ this.point.name +'</b>: '+ this.y +' species';

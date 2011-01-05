@@ -1,7 +1,7 @@
 %h1= @bird['common_name']
 
 %form{:action => "/edit", :method => "post", :name => "edit-species"}
-  %table
+  %table{:class => "tablesorter"}
     %tr
       %td
         %label{:for  => "common-name"} Common name:

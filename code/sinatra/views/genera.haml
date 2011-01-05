@@ -1,0 +1,32 @@
+%h1 Genera
+
+:javascript
+  $(function () {
+   var chart = new Highcharts.Chart({
+      chart: {
+        renderTo: 'container',
+        defaultSeriesType: 'bar'
+    },
+    title: { text: 'Top 20 genera by percent seen' },
+    credits: { enabled: false },
+    xAxis: { categories: #{@genera.map {|e| e[0]}.inspect} },
+    plotOptions: {
+        series: {
+            stacking: 'percent'
+        }
+    },
+
+    series: [
+    {
+      data: #{@genera.map {|e| e[1]}.inspect},
+      name: 'unseen'
+    },
+    {
+      data: #{@genera.map {|e| e[2]}.inspect},
+      name: 'seen'
+    }
+    ]
+    });
+  });
+
+%div#container
