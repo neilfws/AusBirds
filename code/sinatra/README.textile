@@ -1,0 +1,13 @@
+h1. AusBirds
+
+I wrote this code to provide a way to record a life list of Australian birds.  The species are retrieved from "this Wikipedia page":http://en.wikipedia.org/wiki/List_of_Australian_Birds and stored in a MongoDB database.  Sinatra provides the web application, with help from jQuery (jQuery-UI and Highcharts).
+
+The code is for my personal use and comes with no guarantees whatsoever.  If you'd like to give it a try, here are the steps:
+
+# Download the code, _e.g. git clone git@github.com:neilfws/AusBirds.git_ and _cd code/sinatra_
+# _bundle install_
+# Install "MongoDB":http://www.mongodb.org on the same machine (default host _localhost_ and port)
+# Seed the database using _rake db:seed_ (creates database _birds_, collection _species_)
+# Start the application; _e.g. shotgun config.ru_ then http://localhost:9393
+
+You can add, remove or search for species from the index page (all fields autocomplete when a common name is entered).  Species can be edited from a search result or from the List page.  The Genera page shows the top 20 genera (by percent observed); the Extinct page lists species where the notes field contains the word _extinct_.
