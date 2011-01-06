@@ -16,17 +16,17 @@
     - @seen.each do |bird|
       %tr
         %td
-          %a{:href => "/species/#{bird['binomial'].gsub(/\s+/, '_')}"}= bird["common_name"]
+          = link_to "#{bird['common_name']}", "/species/#{bird['binomial'].gsub(/\s+/, '_')}"
         %td
           = bird['binomial']
 
 %div{:id => "pager", :class => "pager"}
   %form
-    %img{:src => "/images/first.png", :class => "first"}
-    %img{:src => "/images/prev.png",  :class => "prev"}
+    = image_tag("/images/first.png", :class => "first")
+    = image_tag("/images/prev.png",  :class => "prev")
     %input{:type => "text", :class => "pagedisplay"}
-    %img{:src => "/images/next.png",  :class => "next"}
-    %img{:src => "/images/last.png",  :class => "last"}
+    = image_tag("/images/next.png",  :class => "next")
+    = image_tag("/images/last.png",  :class => "last")
     %select{:class => "pagesize"}
       %option{:value => "5"} 5
       %option{:selected => "selected", :value => "10"} 10

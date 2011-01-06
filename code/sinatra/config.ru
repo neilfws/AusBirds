@@ -1,5 +1,6 @@
 require "rubygems"
 require "sinatra"
+require "sinatra/static_assets"
 require "mongo"
 require "haml"
 
