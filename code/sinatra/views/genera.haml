@@ -2,10 +2,12 @@
 
 :javascript
   $(function () {
+   Highcharts.setOptions({ colors: ['#DDDDDD', '#006600'] });
    var chart = new Highcharts.Chart({
       chart: {
         renderTo: 'container',
-        defaultSeriesType: 'bar'
+        defaultSeriesType: 'bar',
+        width: 800
     },
     title: { text: 'Top 20 genera by percent seen' },
     credits: { enabled: false },
