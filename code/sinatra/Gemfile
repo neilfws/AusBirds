@@ -1,5 +1,5 @@
-source :gemcutter
+source 'https://rubygems.org'
 gem 'sinatra',               '1.1.2'
 gem 'sinatra-static-assets', '0.5.0'
-gem 'mongo',                 '1.1.5'
-gem 'haml',                  '3.0.25'
+gem 'mongo'
+gem 'haml'

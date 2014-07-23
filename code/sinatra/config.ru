@@ -4,5 +4,5 @@ require "sinatra/static_assets"
 require "mongo"
 require "haml"
 
-require "main"
+require "./main"
 run Sinatra::Application
